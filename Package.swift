@@ -1,8 +1,21 @@
+// swift-tools-version:5.1
 import PackageDescription
 
 let package = Package(
-    name: "Fetch",
+	name: "Fetch",
+	products: [
+		.library(
+			name: "Fetch",
+			targets: ["Fetch"]
+		),
+	],
 	dependencies: [
-		.Package(url: "https://github.com/randymarsh77/async", majorVersion: 1)
+		.package(url: "https://github.com/randymarsh77/async", .branch("master")),
+	],
+	targets: [
+		.target(
+			name: "Fetch",
+			dependencies: ["Async"]
+		),
 	]
 )
